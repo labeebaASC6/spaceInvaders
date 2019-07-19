@@ -11,5 +11,7 @@ class Projectile
         this.type = type;
         this.friendly = friendly; //bool, if false, then damages player
         this.alive = true;
+        this.lifetime = 60*2;
+        this.timeSpent = 0;
     }
 }
