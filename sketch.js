@@ -11,6 +11,7 @@ var miniLayer = 5;
 var miniWidth = 10;
 
 var player;
+var playerSkin;
 var gameover = false;
 var win = false;
 
@@ -22,6 +23,7 @@ function setup()
     player = new Player(width/2, (height - height/10), 20, 20);
 
     setEntity();
+    playerSkin = loadImage('assets/dort.jpg');
 }
 function draw()
 {
@@ -79,10 +81,6 @@ function playerControl()
     {
         player.posX += useSpeed * -1;
     }
-    if(keyIsDown(32)) //press space
-    {
-        projectile.push(new Projectile(player.posX + (player.w/2), player.posY - player.h, 0, -5, 3, 30, "playerProjectile", true));
-    }
 }
 function keyPressed()
 {
@@ -109,8 +107,11 @@ function enemyAI()
         {
             if(checkSide(enemy[i].posX, enemy[i].posY, enemy[i].w, enemy[i].h))
             {
-                enemy[i].velX *= -1;
-                enemy[i].posY += 50;
+                for(let j = 0; j < enemy.length; j++)
+                {
+                    enemy[i].velX *= -1;
+                    enemy[i].posY += 50
+                }
             }
         }
 
