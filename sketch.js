@@ -107,11 +107,8 @@ function enemyAI()
         {
             if(checkSide(enemy[i].posX, enemy[i].posY, enemy[i].w, enemy[i].h))
             {
-                for(let j = 0; j < enemy.length; j++)
-                {
-                    enemy[i].velX *= -1;
-                    enemy[i].posY += 50
-                }
+                enemy[i].velX *= -1;
+                enemy[i].posY += 50
             }
         }
 
